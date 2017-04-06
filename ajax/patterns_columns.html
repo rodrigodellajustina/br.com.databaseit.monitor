@@ -1,0 +1,167 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" charset="iso-8859-1" />
+</head>
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="#">Information Manager</a></li>
+			<li><a href="#">Patterns</a></li>
+			<li><a href="#">SoServico.com</a></li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="dataTables_info"></i>
+					<span>Prefixo de Colunas </span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding">
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+						<tr>
+							<th>Identificação</th>
+							<th>Finalidade</th>
+							<th>Tipo de Dados</th>
+							<th>Exemplo</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- Start: list_row -->
+						<tr>
+							<td><b>NR</b></td>
+							<td>Prefixo de coluna que irá armazenar valores numéricos inteiros/string, para conteúdos significativos.</td>
+							<td>Numérico/String</td>
+							<td>NR_CST</td>
+						</tr>
+						<tr>
+							<td><b>IE</b></td>
+							<td>Indicam situações especiais, valores que demonstram status. Exemplo: 01 – Aberto,  02 – Fechado,  03 – Cancelado</td>
+							<td>Numérico/String</td>
+							<td>IE_STATUS, IE_SITUACAO</td>
+						</tr>
+						<tr>
+							<td><b>DS</b></td>
+							<td>Prefixo de coluna que irá armazenar valores “string”, ou seja, caracteres descritivos.</td>
+							<td>String (Caracteres)</td>
+							<td>DS_OBSERVACAO, DS_NOME, DS_PRODUTO</td>
+						</tr>
+						<tr>
+							<td><b>DT</b></td>
+							<td>Prefixo de coluna que irá armazenar valores do tipo data</td>
+							<td>Data</td>
+							<td>DT_LANCAMENTO, DT_EMISSAO</td>
+						</tr>
+						<tr>
+							<td><b>HR</b></td>
+							<td>Prefixo de coluna que irá armazenar valores do tipo hora</td>
+							<td>Hora</td>
+							<td>HR_EMISSAO, HR_LANCAMENTO</td>
+						</tr>
+						<tr>
+							<td><b>DH</b></td>
+							<td>Prefixo de coluna que irá armazenar valores do tipo Data/Hora</td>
+							<td>Hora/Hora</td>
+							<td>DH_EMISSAO, DH_LANCAMENTO</td>
+						</tr>
+						<tr>
+							<td><b>VL</b></td>
+							<td>Prefixo de coluna que irá armazenar valores numéricos, ou seja,números que podem possuir casas decimais</td>
+							<td>Numérico</td>
+							<td>VL_ICMS, VL_VENDA, VL_BASECALCULO, VL_ISS</td>
+						</tr>
+						<tr>
+							<td><b>ID</b></td>
+							<td>Prefixo de coluna que irá armazenar valores numéricos inteiros (ID, CHAVES, CHAVES ESTRANGEIRAS)</td>
+							<td>Numérico</td>
+							<td>ID_VENDA, ID_PEDIDO, ID_PESSOA</td>
+						</tr>
+						<tr>
+							<td><b>QT</b></td>
+							<td>Prefixo de coluna que irá armazenar quantidades numéricas</td>
+							<td>Numérico</td>
+							<td>QT_ESTOQUE, QT_CONTATO, QT_VENDA, QT_COMPRA</td>
+						</tr>
+						<tr>
+							<td><b>SG</b></td>
+							<td>Prefixo de coluna que irá armazenar valores de Siglas</td>
+							<td>String</td>
+							<td>SG_IMPOSTO, SG_ESTADO</td>
+						</tr>
+						<tr>
+							<td><b>XL</b></td>
+							<td>Prefixo de coluna que irá armazenar valores contidos em colunas com especificações XML</td>
+							<td>XML</td>
+							<td>XML_NFE, XML_NFCE</td>
+						</tr>
+						<tr>
+							<td><b>PE</b></td>
+							<td>Prefixo de coluna que irá armazenar valores percentuais</td>
+							<td>Númerico</td>
+							<td>PE_ACRESCIMO, PE_PARTICIPACAO, PE_DESCONTO, PE_UTILIZADO</td>
+						</tr>
+						</tr>
+							<tr>
+							<td><b>IM</b></td>
+							<td>Prefixo de coluna que ira armazenar imagens.</td>
+							<td>Blob</td>
+							<td>IM_FOTO_CLIENTE</td>
+						</tr>
+						</tr>
+							<tr>
+							<td><b>FG</b></td>
+							<td>Prefixo de coluna que irá armazenar situação de campos flag. 0 – Desligado 1 – Ligado</td>
+							<td>Númerico</td>
+							<td>FG_INATIVO, FG_ATIVO</td>
+						</tr>
+						</tr>
+							<tr>
+							<td><b>JS</b></td>
+							<td>Prefixo de coluna que irá armazenar valores padrão JSON</td>
+							<td>Json Type</td>
+							<td>JS_RESTWEBSERVIE, JS_INFORMATION</td>
+						</tr>
+					<!-- End: list_row -->
+					</tbody>
+			
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Buscar');
+	});
+}
+$(document).ready(function() {
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Add Drag-n-Drop feature
+	WinMove();
+});
+</script>
+</html>

@@ -1,0 +1,29 @@
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="index.html">CissMart</a></li>
+			<li><a href="#">DER</a></li>
+		</ol>
+	</div>
+</div>
+
+<script type="text/javascript">
+// Draw all test xCharts
+function DrawAllxCharts(){
+	xGraph1();
+	xGraph2();
+	xGraph3();
+}
+$(document).ready(function() {
+	// Load required scripts and callback to draw
+	LoadXChartScript(DrawAllxCharts);
+	// Required for correctly resize charts, when boxes expand
+	var graphxChartsResize;
+	$(".box").resize(function(event){
+		event.preventDefault();
+		clearTimeout(graphxChartsResize);
+		graphxChartsResize = setTimeout(DrawAllxCharts, 500);
+	});
+	WinMove();
+});
+</script>

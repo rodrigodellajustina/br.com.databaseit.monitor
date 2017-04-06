@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+	<head>
+		<meta http-equiv="Content-Type" charset="iso-8859-1" />
+		<title>Information Manager CISS</title>
+		<meta name="description" content="description">
+		<meta name="author" content="DevOOPS">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+		<link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+		<link href="plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
+		<link href="plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="plugins/xcharts/xcharts.min.css" rel="stylesheet">
+		<link href="plugins/select2/select2.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+				<script src="http://getbootstrap.com/docs-assets/js/html5shiv.js"></script>
+				<script src="http://getbootstrap.com/docs-assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+<body>
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="index.html">Pattern</a></li>
+			<li><a href="#">Buffer Pools</a></li>
+			<li><a href="#">Nomenclaturas</a></li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="fa fa-table"></i>
+					<span>Nomenclatura Buffer Pools</span>
+				</div>
+				<div class="box-icons">
+					<a class="beauty-table-to-json">
+
+					</a>
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content">
+				<h4>Buffer Pools, possui características no ERP onde é definido buffer pools globais de 4,8,16 e 32 K e também buffer pools específicos de acordo com grupo de <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">prefixo</a> das tabelas. o prefixo do buffer pool é denominada BFP.</h4>				
+				<ol>
+				    <p>Exemplos</p>
+					<br>
+					<li><b>Exemplo Buffer Pools Específicos por grupo de prefixo de tabela</b></li>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT04K_001  <b>exemplo (BFP_FIN_DAT04K_001)</b></p>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT08K_001  <b>exemplo (BFP_FIN_DAT08K_001)</b></p>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT16K_001  <b>exemplo (BFP_FIN_DAT16K_001)</b></p>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT16K_001  <b>exemplo (BFP_FIN_DAT32K_001)</b></p>
+					<br>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT16K_001  <b>exemplo (BFP_CAD_DAT04K_001)</b></p>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT16K_001  <b>exemplo (BFP_CAD_DAT08K_001)</b></p>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT16K_001  <b>exemplo (BFP_CAD_DAT16K_001)</b></p>
+					<p>Prefixo (BFP) + <a class="ajax-link" href="#ajax/patterns_prefix_tables.html" target="_blank">Prefixo de Tabela</a> (CAD,FIN...) + DAT16K_001  <b>exemplo (BFP_CAD_DAT32K_001)</b></p>
+					<br>
+					<li><b>Exemplo Buffer Pools Globais</b></li>
+					<p>Prefixo (BFP) + GLO + DAT04K_001  <b>exemplo (BFP_GLO_DAT04K_001)</b></p>
+					<p>Prefixo (BFP) + GLO + DAT04K_001  <b>exemplo (BFP_GLO_DAT04K_002)</b></p>
+					<p>Prefixo (BFP) + GLO + DAT08K_001  <b>exemplo (BFP_GLO_DAT08K_001)</b></p>
+					<p>Prefixo (BFP) + GLO + DAT16K_001  <b>exemplo (BFP_GLO_DAT16K_001)</b></p>
+					<p>Prefixo (BFP) + GLO + DAT16K_001  <b>exemplo (BFP_GLO_DAT32K_001)</b></p>
+					<br>
+					<br>					
+				</ol>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+<script>
+$(document).ready(function() {
+	// Run beauty tables plugin on every table with class .beauty-table
+	$('.beauty-table').each(function(){
+		// Run keyboard navigation in table
+		$(this).beautyTables();
+		// Nice CSS-hover row and col for current cell
+		$(this).beautyHover();
+	});
+	// Attach to click action for create JSON data from tables.
+	$('.beauty-table-to-json').on('click', function(e){
+		e.preventDefault();
+		var table = $(this).closest('.box').find('table');
+		Table2Json(table);
+	});
+	// Add Drag-n-Drop feature
+	WinMove();
+});
+</script>

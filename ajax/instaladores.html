@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="#">Information Manager</a></li>
+			<li><a href="#">Sofware</a></li>
+			<li><a href="#">Instaladores</a></li>
+		</ol>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<div class="box-name">
+					<i class="dataTables_info"></i>
+					<span>Sofware Instaladores Information Manager</span>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link">
+						<i class="fa fa-chevron-up"></i>
+					</a>
+					<a class="expand-link">
+						<i class="fa fa-expand"></i>
+					</a>
+				</div>
+				<div class="no-move"></div>
+			</div>
+			<div class="box-content no-padding">
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+						<tr>
+							<th>Software</th>
+							<th>Link</th>
+						</tr>
+					</thead>
+					<tbody>
+					<!-- Start: list_row -->
+						<tr>
+							<td>DB2 Windows/64 10.1</a></td>
+							<td><a href="../install/db2_v101_winx64_expc.exe"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>DB2 Linux/64 10.5</td>
+							<td><a href="../install/v10.5fp1_linuxx64_expc.tar.gz"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>DB2 Client/64 10.5</td>
+							<td><a href="../install/ibm_data_server_runtime_client_win64_v10.5.zip"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>DB2 Client/32 10.5</td>
+							<td><a href="../install/ibm_data_server_runtime_client_win32_v10.5.zip"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>JDBC-4 DB2 10.5</td>
+							<td><a href="../install/ibm_data_server_driver_for_jdbc_sqlj_v10.5.zip"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>IBM IDA Infosphere Data Architect 9.1(Modelador Win/Linux)</td>
+							<td><a href="../install/ibm_data_server_runtime_client_win32_v10.5.zip"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>IBM DB2 Data Studio Full 4.0 (Administração Ambiente DB2 Win/Linux)</td>
+							<td><a href="../install/ibm_data_studio_full_cliente_v400_windows.rar"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>Putty</td>
+							<td><a href="../install/putty.exe"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>WinSCP</td>
+							<td><a href="../install/winscp555setup.exe"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>WampServer</td>
+							<td><a href="../install/wampserver2.5-Apache-2.4.9-Mysql-5.6.17-php5.5.12-64b.exe"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>Client SQL WinSQL 7.04</td>
+							<td><a href="../install/ibm_data_server_runtime_client_win32_v10.5.zip"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>MongoDB 3.0 Windows/64</td>
+							<td><a href="../install/mongodb-win32-x86_64-2008plus-3.0.1.zip"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>MongoDB 3.0 Linux/64</td>
+							<td><a href="../install/mongodb-linux-x86_64-3.0.1.gz"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+						<tr>
+							<td>RoboMongo Windows 0.85 (administrador)</td>
+							<td><a href="../install/Robomongo-0.8.5-i386.exe"> <img class="img-rounded" src="img/download.png" alt=""> </a></td>						
+						</tr>
+					<!-- End: list_row -->
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Buscar');
+	});
+}
+$(document).ready(function() {
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Add Drag-n-Drop feature
+	WinMove();
+});
+</script>
+</html>

@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["wordtree"]});
+      google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable(
+          [ ['Phrases'],
+            ['amortecedor dianteiro gol'],
+            ['amortecedor dianteiro volks'],
+            ['amortecedor dianteiro voyage'],
+            ['amortecedor dianteiro parati'],
+            ['amortecedor jogo gol/voyage'],
+            ['amortecedor jogo gol volks'],
+            ['amortecedor traseiro volks gol'],
+            ['amortecedor transeiro gol'],
+            ['amortecedor trans gol voyage'],
+			['batente traseiro volks gol'],
+            ['batente transeiro gol'],
+            ['batente transeiro gol voyage'],
+
+          ]
+        );
+
+        var options = {
+          wordtree: {
+            format: 'implicit',
+            word: ['amortecedor', 'batente']
+          }
+        };
+
+        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="wordtree_basic" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>

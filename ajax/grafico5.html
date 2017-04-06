@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawVisualization);
+
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+         ['Month', 'João da Silva-ME', 'Maria da Silva', 'Guilherme Arantes', 'João Cunha Neto'  , 'Roberto Alberto Santos'],
+         ['Out/15',  15844.44		 ,      5844.44	   ,        2444.44	    ,             1545.44,          545.44],
+         ['Set/15',  1315.33		 ,      2598.54	   ,        599			,             1268   ,            288],
+         ['Ago/15',  2157.88		 ,      1985.33	   ,        587			,             807    ,           397],
+         ['Jul/15',  1139.99		 ,      1110.00    ,        615			,             968    ,           2154],
+         ['Jun/15',  6136.87		 ,      691.00 	   ,         629		,             1026   ,           366]
+      ]);
+
+    var options = {
+      title : 'Maiores Compradores ',
+      vAxis: {title: 'Valores'},
+      hAxis: {title: 'Meses'},
+      seriesType: 'bars',
+      series: {5: {type: 'line'}}
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  }
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+	
+
+  </body>
+  
+  
+</html>

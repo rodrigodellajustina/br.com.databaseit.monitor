@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["map"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Lat', 'Long', 'Nome'],
+          [-25.756495, -53.054668, 'João da Silva-ME'],
+          [-25.741768, -53.051191, 'Rodrigo Della Justina'],
+          [-25.742889, -53.066984, 'Maria da Silva'],
+          [-25.738985, -53.062306, 'Roberto Pedro Da Silva']
+        ]);
+
+        var options = {
+          icons: {
+            default: {
+              normal: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Azure-icon.png',
+              selected: 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
+            }
+          }
+        };
+
+        var map = new google.visualization.Map(document.getElementById('map_markers_div'));
+        map.draw(data, options);
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <div id="map_markers_div" style="width: 1200; height: 800px"></div>
+  </body>
+</html>

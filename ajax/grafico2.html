@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" charset="UTF-8" />  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Receitas', 'Valor'],
+          ['Produtos Loja',     1254.40],
+          ['Serviços Oficina',     90.50],
+          ['Produtos de Oficina',  858.55],
+          ['Serviços Externos', 258.55]
+        ]);
+
+        var options = {
+          title: 'Participação nas receitas de Outubro/2015'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 400px; height: 300px;"></div>
+  </body>
+</html>

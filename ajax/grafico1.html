@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" charset="UTF-8" />  
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Despesas', 'Valor'],
+          ['Folha Pagamento',     1254.40],
+          ['Despesas Operacional',     90.50],
+          ['Manutenção Estrutura',  858.55],
+          ['Equipamentos', 258.55],
+          ['Veículos',    984.40],
+		  ['Telefone',    123.40],
+		  ['Celular',    858.40],
+		  ['Energia Elétrica',    458.40]	  
+        ]);
+
+        var options = {
+          title: 'Participação nas despesas de Outubro/2015'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 400px; height: 300px;"></div>
+  </body>
+</html>
