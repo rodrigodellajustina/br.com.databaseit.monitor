@@ -24,6 +24,8 @@
 	select pccmnfs0.empfil,count(*) as qtdpendente from pccmnfs0 
 	where pccmnfs0.status = '' and pccmnfs0.NFE  = 1 and pccmnfs0.nfe_protoc = ''
 	group by pccmnfs0.empfil
+	union
+	select cast('9999' as char(4)) as empfil, 0 as qtdpendente
 	) as pendentes join pcmtemp0 on (pendentes.empfil = pcmtemp0.codigo)
 	) as x
 	order by x.dt desc
