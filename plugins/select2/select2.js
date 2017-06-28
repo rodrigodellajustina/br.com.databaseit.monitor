@@ -119,7 +119,7 @@ the specific language governing permissions and limitations under the Apache Lic
     }
 
     function indexOf(value, array) {
-        var i = 0, l = array.length;
+        var i = 0, l = array.length;		
         for (; i < l; i = i + 1) {
             if (equal(value, array[i])) return i;
         }
@@ -337,6 +337,7 @@ the specific language governing permissions and limitations under the Apache Lic
         if (classes) {
             classes = '' + classes; // for IE which returns object
             $(classes.split(" ")).each2(function() {
+				
                 if (this.indexOf("select2-") === 0) {
                     replacements.push(this);
                 }
@@ -346,6 +347,7 @@ the specific language governing permissions and limitations under the Apache Lic
         if (classes) {
             classes = '' + classes; // for IE which returns object
             $(classes.split(" ")).each2(function() {
+				
                 if (this.indexOf("select2-") !== 0) {
                     adapted = adapter(this);
                     if (adapted) {
@@ -592,7 +594,9 @@ the specific language governing permissions and limitations under the Apache Lic
             index, // position at which the separator was found
             i, l, // looping variables
             separator; // the matched separator
-
+		
+		
+		
         if (!opts.createSearchChoice || !opts.tokenSeparators || opts.tokenSeparators.length < 1) return undefined;
 
         while (true) {
@@ -1287,7 +1291,7 @@ the specific language governing permissions and limitations under the Apache Lic
             }
 
             // create the dropdown mask if doesnt already exist
-            mask = $("#select2-drop-mask");
+            mask = $("#select2-drop-mask");			
             if (mask.length == 0) {
                 mask = $(document.createElement("div"));
                 mask.attr("id","select2-drop-mask").attr("class","select2-drop-mask");
@@ -2196,7 +2200,7 @@ the specific language governing permissions and limitations under the Apache Lic
 
             // find the selected element in the result list
 
-            this.findHighlightableChoices().each2(function (i, elm) {
+            this.findHighlightableChoices().each2(function (i, elm) {				
                 if (equal(self.id(elm.data("select2-data")), self.opts.element.val())) {
                     selected = i;
                     return false;
@@ -2943,7 +2947,7 @@ the specific language governing permissions and limitations under the Apache Lic
         resizeSearch: function () {
             var minimumWidth, left, maxWidth, containerLeft, searchWidth,
                 sideBorderPadding = getSideBorderPadding(this.search);
-
+			
             minimumWidth = measureTextWidth(this.search) + 10;
 
             left = this.search.offset().left;
@@ -3150,7 +3154,7 @@ the specific language governing permissions and limitations under the Apache Lic
                 if (indexOf(args[0], allowedMethods) < 0) {
                     throw "Unknown method: " + args[0];
                 }
-
+								
                 value = undefined;
                 select2 = $(this).data("select2");
                 if (select2 === undefined) return;

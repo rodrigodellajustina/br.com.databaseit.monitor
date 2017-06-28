@@ -1561,7 +1561,7 @@ function DrawCoinDeskGoogleCharts(){
 //
 // Function for table, located in element with id = datatable-1
 //
-function TestTable1(){
+function TestTable1(){	
 	$('#datatable-1').dataTable( {
 		"aaSorting": [[ 0, "asc" ]],
 		"sDom": "<'box-content'<'col-sm-6'f><'col-sm-6 text-right'l><'clearfix'>>rt<'box-content'<'col-sm-6'i><'col-sm-6 text-right'p><'clearfix'>>",

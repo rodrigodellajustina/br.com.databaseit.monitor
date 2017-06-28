@@ -12,24 +12,45 @@
 		echo "nao conectou";
 	}
 	    
-	$result  = pg_query($Conexao, "select empresa,qtdpendente, TO_CHAR(dt, 'DD/MM/YYYY') from (
-	select empresa,qtdpendente,dt from (
-	select 
-	pendentes.empfil||'  - '||pcmtemp0.fantas as empresa, 
-	qtdpendente, 
-	(select max(dtmovi)
-	from pccmnfs0 as nfs_c 
-	where nfs_c.empfil = pendentes.empfil and nfs_c.status = '' and nfs_c.NFE  = 1 and nfs_c.nfe_protoc = '') as dt	 
-	from (
-	select pccmnfs0.empfil,count(*) as qtdpendente from pccmnfs0 
-	where pccmnfs0.status = '' and pccmnfs0.NFE  = 1 and pccmnfs0.nfe_protoc = ''
-	group by pccmnfs0.empfil
-	union
-	select cast('9999' as char(4)) as empfil, 0 as qtdpendente
-	) as pendentes join pcmtemp0 on (pendentes.empfil = pcmtemp0.codigo)
-	) as x
-	order by x.dt desc
-	) as apresentacao
+	$result  = pg_query($Conexao, "select 
+										certificados.codigo||' - '||pcmtemp0.fantas as empresa,    
+										CASE 
+										WHEN certificados.mensagem = 'Certificado vencido' THEN
+											certificados.mensagem||' a '||alltrim(cast(certificados.numero_dias*-1 as char(10)))||' dias'
+										WHEN certificados.mensagem = 'Certificado irá vencer' and certificados.numero_dias > 7 THEN
+											certificados.mensagem||' em '||alltrim(cast(certificados.numero_dias as char(10)))||' dias'
+										ELSE 
+											certificados.mensagem
+										END as mensagem,        
+										TO_CHAR(certificados.data_vcto, 'DD/MM/YYYY') as data_vcto,
+										CASE
+										WHEN certificados.mensagem = 'Certificado vencido' THEN
+											'danger'
+										WHEN certificados.mensagem = 'Certificado irá vencer' and certificados.numero_dias > 7 THEN
+											''
+										ELSE 
+											'warning'
+										END as cor
+									from (
+										select 
+											CODIGO,	
+											DATA_VCTO_CERTIFICADO_DIGITAL as data_vcto,
+											CASE 
+												WHEN DATA_VCTO_CERTIFICADO_DIGITAL < CURRENT_DATE and DATA_VCTO_CERTIFICADO_DIGITAL is not null THEN
+												'Certificado vencido'
+												WHEN DATA_VCTO_CERTIFICADO_DIGITAL IS NULL THEN
+												'Não informado a data de vencimento do certificado'
+												ELSE
+												'Certificado irá vencer'
+											END as mensagem,
+											COALESCE(DATA_VCTO_CERTIFICADO_DIGITAL - CURRENT_DATE,0) as numero_dias
+										from pcmtemp0
+										where codigo <> '9999'
+										order by codigo
+									) as certificados
+									  join pcmtemp0 on(pcmtemp0.codigo = certificados.codigo)
+									order by 
+									  certificados.numero_dias
 	");
 		
 ?>
@@ -58,7 +79,7 @@
  });
  function cache_clear()
 {
- window.location.href = '../monitoramento/#ajax/cer_paladino.html';
+ window.location.href = '../monitoramento/#ajax/der_dbdawen.html';
  window.location.reload(true);
 }
 </script>
@@ -69,25 +90,24 @@
 <div class="row">
 	<div id="breadcrumb" class="col-md-12">
 		<ol class="breadcrumb">
-			<li><a href="#">Notas</a></li>
-			<li><a href="#">NFC-e</a></li>
-			<li><a href="#">Pendentes</a></li>
+			<li><a href="#">Certificados</a></li>
+			<li><a href="#">Vencimentos</a></li>			
 		</ol>
 	</div>
 </div>
 
 
 
-<h4 class="page-header">NFC-e pendentes de autorização</h4>
+<h4 class="page-header">Vencimento certificados digitais Paladino</h4>
 	
 
 <div class="box-content no-padding">
 				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
 					<thead>
 						<tr>
-							<th>Cliente</th>
-							<th>Quantidade</th>
-							<th>Data</th>
+							<th>Empresa</th>
+							<th>Mensagem Vencimento</th>
+							<th>Data Vencimento</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -95,9 +115,9 @@
 					   while ($row = pg_fetch_row($result)) {
 					?>
 						<tr>
-							<td class="danger"><?PHP echo $row[0] ?></td>
-							<td class="danger" align="center"><?PHP echo $row[1] ?></a></td>
-							<td class="danger" align="center"><?PHP echo $row[2] ?></td>
+							<td class="<?PHP echo $row[3] ?>"><?PHP echo $row[0] ?></td>
+							<td class="<?PHP echo $row[3] ?>" align="left"><?PHP echo $row[1] ?></a></td>
+							<td class="<?PHP echo $row[3] ?>" align="center"><?PHP echo $row[2] ?></td>
 						</tr>
 						
 					<!-- End: list_row -->
@@ -107,21 +127,19 @@
 					</tbody>
 					
 				</table>
-			</div>
+</div>
 
 			
 
 
 <script type="text/javascript">
 // Run Datables plugin and create 3 variants of settings
-function AllTables(){
-	TestTable1();
-	TestTable2();
-	TestTable3();
+function AllTables(){	    
 	LoadSelect2Script(MakeSelect2);
 }
 function MakeSelect2(){
 	$('select').select2();
+	$('select').select2("val", 50);
 	$('.dataTables_filter').each(function(){
 		$(this).find('label input[type=text]').attr('placeholder', 'Buscar');
 	});
