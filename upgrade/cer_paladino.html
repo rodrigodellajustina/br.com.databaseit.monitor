@@ -49,10 +49,7 @@
 										order by codigo
 									) as certificados
 									  join pcmtemp0 on(pcmtemp0.codigo = certificados.codigo)
-									  join pccdcli0 on(pccdcli0.codigo = pcmtemp0.clifort) 
-									  where
-									  pccdcli0.ativo = 1
-									  order by
+									order by 
 									  certificados.numero_dias
 	");
 		
