@@ -1,10 +1,10 @@
 <?php
 	
 	$dbHost 	= "localhost";
-	$dbuser 	= "postgres";
-	$dbpass 	= "pgsql";
-    $dbdatabase = "paladino2806";
-	$dbport     = "5495";
+	$dbuser 	= "monitoramento";
+	$dbpass 	= "monitoramento";
+    $dbdatabase = "sscloudnfce";
+	$dbport     = "50691";
 	
 	$Conexao = @pg_connect("host=$dbHost user=$dbuser password=$dbpass dbname=$dbdatabase port=$dbport");
 	
@@ -78,7 +78,7 @@
 		<link href="css/style.css" rel="stylesheet">		
 		 <script>
  $(document).ready(function(){
- setInterval(function(){cache_clear()},10000);
+ setInterval(function(){cache_clear()},30000);
  });
  function cache_clear()
 {
