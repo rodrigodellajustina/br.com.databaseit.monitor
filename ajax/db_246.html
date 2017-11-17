@@ -1,0 +1,119 @@
+<?php
+	
+	$dbHost 	= "172.20.1.246";
+	$dbuser 	= "postgres";
+	$dbpass 	= "";
+    $dbdatabase = "postgres";
+	$dbport     = "5432";
+	
+	$Conexao = @pg_connect("host=$dbHost user=$dbuser password=$dbpass dbname=$dbdatabase port=$dbport");
+	
+	if(!$Conexao){
+		echo "nao conectou";
+	}
+	
+	$result  = pg_query($Conexao, "SET client_encoding TO WIN1252;select base_mostra , msg_mostra , tamanho_base_mostra , mostra_data_ultima_operacao from view_dados_base");
+		
+?>
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+ <title></title>
+		<meta name="description" content="description">
+		<meta name="author" content="DevOOPS">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+		<link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+		<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+		<link href="plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
+		<link href="plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+		<link href="plugins/xcharts/xcharts.min.css" rel="stylesheet">
+		<link href="plugins/select2/select2.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">		
+		 <script>
+ $(document).ready(function(){
+ setInterval(function(){cache_clear()},4000000);
+ });
+ function cache_clear()
+{
+ window.location.href = '../monitoramento/#ajax/db_246.html';
+ window.location.reload(true);
+}
+</script>
+
+</head>
+
+
+<div class="row">
+	<div id="breadcrumb" class="col-md-12">
+		<ol class="breadcrumb">
+			<li><a href="#">Bases</a></li>	
+		</ol>
+	</div>
+</div>
+
+
+
+<h4 class="page-header">Uso das bases de dados restauradas</h4>
+	
+
+<div class="box-content no-padding">
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+					<thead>
+						<tr>
+							<th>Base</th>
+							<th>Mensagem de Uso</th>
+							<th>Tamanho</th>
+							<th>Última Operação</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?PHP
+					   while ($row = pg_fetch_row($result)) {
+					?>
+						<tr>
+							<td><?PHP echo $row[0] ?></td>
+							<td align="left"><?PHP echo $row[1] ?></a></td>
+							<td align="left"><?PHP echo $row[2] ?></td>
+							<td align="center"><?PHP echo $row[3] ?></td>
+						</tr>
+						
+					<!-- End: list_row -->
+					<?PHP
+					   }
+					?>
+					</tbody>
+					
+				</table>
+</div>
+
+			
+
+
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){   
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Buscar');
+	});
+}
+$(document).ready(function() {
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Add Drag-n-Drop feature
+	WinMove();
+});
+
+
+</script>
+
+
+</html>
